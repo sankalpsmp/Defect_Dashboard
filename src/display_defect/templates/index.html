@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Please choose the date</p>
+<form method="post" action="{% url 'calcluate_top_scorer'%}">
+    {% csrf_token %}
+    {{form.as_p}}
+    
+    <input type="submit" value='submit'/>
+    <input type=button onClick="location.href={% url 'display_score' %}" value='view table'/>
+
+
+</form>
+
+
+
+</body>
+</html>

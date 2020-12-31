@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<form method="post" action="{% url 'display_score'%}">
+    {% csrf_token %}
+
+	<table border="1" width="600">
+    <h1>This is the list Top scorers</h1>
+    <tr>
+<td>Employee ID</td>
+<td>Score</td>
+</tr>
+{% for data in all_data %}
+<tr><td>{{data.employee_id}}</td>
+<td>{{data.score}}</td> 
+</tr>
+{% endfor %}
+</table>
+</form>
+
+</body>
+</html>

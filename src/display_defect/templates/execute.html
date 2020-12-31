@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+
+<form method="post" action="{% url 'store_data'%}">
+    {% csrf_token %}
+    <input type="submit" value="execute">
+    <table border="1" width="600">
+    <h1>This is the list of all the reviews and scores</h1>
+    <tr>
+<td>Review ID</td>
+<td>Reviewers Score</td>
+<td>Review Closed Date</td>
+</tr>
+{% for data in all_data %}
+<tr><td>{{data.review_id}}</td>
+<td>{{data.reviewers_score}}</td> 
+<td>{{data.review_closed_date}}</td></tr>
+{% endfor %}
+</table>
+</form>
+<br>
+<input type=button onClick="location.href={% url 'calcluate_top_scorer' %}" value='Calculate the Top Scorer'/>
+</body>
+</html>
